@@ -16,6 +16,13 @@
             <%= f.password_field :password %>
           </div>
 
+          <div class="field">
+            <%= f.check_box :remember_me, id:"remember_me" %>
+            <%= f.label "remember_me", for:"remember_me", id:"remember_me" %>
+          </div>
+
+          <br>
+
           <%= f.submit "Log in", class: "waves-effect waves-light btn" %>
         <% end %>
 
