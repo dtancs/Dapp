@@ -1,0 +1,15 @@
+<% flash.each do |message_type, message| %>
+  <div id="row">
+    <% if message_type.to_s == 'danger' %>
+     <div class="card red lighten-4">
+       <div class="card-content red-text text-lighten-1">
+    <% else %>
+      <div class="card green lighten-4">
+        <div class="card-content green-text text-darken-1">
+    <% end %>
+
+        <p><b><%= message %></b></p>
+      </div>
+    </div>
+  </div>
+<% end %>
