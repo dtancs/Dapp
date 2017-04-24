@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = User.new(name: "Example User", email: "user@example.com")
+    @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
     @user.save
   end
 
@@ -18,7 +18,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user" do
     assert_difference('User.count') do
-      post users_url, params: { user: { email: "testuser@test.com", name: "Test User" } }
+      post users_url, params: { user: { email: "testuser@test.com", name: "Test User",password: "foobar", password_confirmation: "foobar" } }
     end
 
     assert_redirected_to user_url(User.last)
@@ -35,7 +35,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user" do
-    patch user_url(@user), params: { user: { email: @user.email, name: @user.name } }
+    patch user_url(@user), params: { user: { email: @user.email, name: @user.name,password: "foobar", password_confirmation: "foobar" } }
     assert_redirected_to user_url(@user)
   end
 
