@@ -2,11 +2,11 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
-    @user.save
+    @user = users(:chershen)
   end
 
   test "should get index" do
+    log_in_as(@user, remember_me: '1')
     get users_url
     assert_response :success
   end
@@ -30,11 +30,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
+    log_in_as(@user, remember_me: '1')
     get edit_user_url(@user)
     assert_response :success
   end
 
   test "should update user" do
+    log_in_as(@user, remember_me: '1')
     patch user_url(@user), params: { user: { email: @user.email, name: @user.name,password: "foobar", password_confirmation: "foobar" } }
     assert_redirected_to user_url(@user)
   end

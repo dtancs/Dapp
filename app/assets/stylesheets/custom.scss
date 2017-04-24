@@ -16,3 +16,13 @@
     box-shadow: 0 1px 0 0 $input-error-color;
   }
 }
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid grey;
+  }
+}
