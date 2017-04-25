@@ -2,6 +2,8 @@
   <div class="row">
     <h4>Users</h4>
 
+    <%= will_paginate %>
+
     <ul class="users">
       <% @users.each do |user| %>
         <li>
@@ -11,6 +13,7 @@
       <% end %>
     </ul>
 
+    <%= will_paginate %>
     <br>
 
     <%= link_to 'New User', new_user_path %>
