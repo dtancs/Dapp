@@ -1,13 +1,13 @@
-<% if @user.errors.any? %>
+<% if object.errors.any? %>
   <div id="row">
     <div class="card red lighten-4">
       <div class="card-content red-text text-lighten-1">
-        <p><b>The form contains <%= pluralize(@user.errors.count, "error") %></b></p>
+        <p><b>The form contains <%= pluralize(object.errors.count, "error") %></b></p>
       </div>
     </div>
     <span class="red-text">
       <ul>
-      <% @user.errors.full_messages.each do |msg| %>
+      <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
