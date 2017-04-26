@@ -15,5 +15,13 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   root 'static_pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  #api
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :users, only: [:index, :create, :show, :update, :destroy]
+      resources :microposts, only: [:index, :create, :show, :update, :destroy]
+    end
+  end
+
 end
