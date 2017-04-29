@@ -6,8 +6,9 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.all
 
-    render partial: 'api/v1/users/user', status: :ok
+    render partial: 'api/v1/users/show', status: :ok
   end
 
   def create
