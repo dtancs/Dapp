@@ -7,7 +7,8 @@ class Api::V1::SessionsController < Api::V1::BaseController
       user.remember_mobile
 
       render json: {
-        mobile_token: user.mobile_token,
+        user_id: user.id.to_s,
+        mobile_token: user.mobile_token
       }, status: 	:ok
 
     else
