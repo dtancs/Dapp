@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   attr_accessor :remember_token
+  attr_accessor :mobile_token
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
 
@@ -49,6 +50,23 @@ class User < ApplicationRecord
   # Forgets a user.
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # Remembers a user in the database for use in persistent sessions.
+  def remember_mobile
+    self.mobile_token = User.new_token
+    update_attribute(:mobile_digest, User.digest(mobile_token))
+  end
+
+  # Returns true if the given token matches the digest.
+  def mobile_authenticated?(mobile_token)
+    return false if mobile_digest.nil?
+    BCrypt::Password.new(mobile_digest).is_password?(mobile_token)
+  end
+
+  # Forgets a user.
+  def forget_mobile
+    update_attribute(:mobile_digest, nil)
   end
 
   # Returns a user's status feed.
