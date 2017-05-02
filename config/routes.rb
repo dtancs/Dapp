@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
       get '/feed/:id',  to: 'feed#show'
       post '/login',  to: 'sessions#create'
-      delete '/logout',  to: 'sessions#destroy'
+      delete '/logout/:id/:mobile_token',  to: 'sessions#destroy'
     end
   end
 

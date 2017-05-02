@@ -19,8 +19,8 @@ class Api::V1::SessionsController < Api::V1::BaseController
   end
 
   def destroy
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.mobile_authenticated?(params[:session][:mobile_token])
+    user = User.find_by(id: params[:id])
+    if user && user.mobile_authenticated?(params[:mobile_token])
       # Log the user in .
       user.forget_mobile
 
