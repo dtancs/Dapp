@@ -8,6 +8,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
 
       render json: {
         user_id: user.id.to_s,
+        user_name: user.name.to_s,
         mobile_token: user.mobile_token
       }, status: 	:ok
 
