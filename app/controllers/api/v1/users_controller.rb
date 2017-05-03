@@ -15,7 +15,15 @@ class Api::V1::UsersController < Api::V1::BaseController
     @user = User.new(user_params)
 
     if @user.save
-      render partial: 'api/v1/users/user', status: :created
+      # Log the user in .
+      @user.remember_mobile
+
+      render json: {
+        id: @user.id.to_s,
+        email: @user.email.to_s,
+        name: @user.name.to_s,
+        mobile_token: @user.mobile_token
+      }, status: 	:ok
     else
       render json: {
         errors: @user.errors.full_messages,
