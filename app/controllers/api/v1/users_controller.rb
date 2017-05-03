@@ -25,13 +25,18 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def update
     @user = User.find(params[:id])
-
-    if @user.update(user_params)
-      render partial: 'api/v1/users/user', status: :ok
+    if @user && @user.mobile_authenticated?(params[:user][:mobile_token])
+      if @user.update(user_params)
+        render partial: 'api/v1/users/user', status: :ok
+      else
+        render json: {
+          errors: @user.errors.full_messages,
+        }, status: 	:unprocessable_entity
+      end
     else
       render json: {
-        errors: @user.errors.full_messages,
-      }, status: 	:unprocessable_entity
+        errors: "Unable to authenticate use, please login again.",
+      }, status: 	:unauthorized
     end
   end
 
