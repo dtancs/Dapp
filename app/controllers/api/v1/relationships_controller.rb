@@ -1,5 +1,12 @@
 class Api::V1::RelationshipsController < Api::V1::BaseController
 
+  def show
+    @user = User.find_by(id: params[:id])
+    @followings = @user.following
+    @followers = @user.followers
+    render partial: 'api/v1/relationships/show', status: :ok
+  end
+
   def create
     current_user = User.find_by(id: params[:relationship][:current_user_id])
     target_user = User.find_by(id: params[:relationship][:target_user_id])

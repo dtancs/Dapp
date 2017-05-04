@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       delete '/logout/:id/:mobile_token',  to: 'sessions#destroy'
 
       post '/relationship',  to: 'relationships#create'
+      get '/relationships/:id',  to: 'relationships#show'
     end
   end
 
