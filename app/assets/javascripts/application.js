@@ -15,3 +15,9 @@
 //= require materialize/bin/materialize.min
 //= require turbolinks
 //= require_tree .
+
+
+
+document.addEventListener("turbolinks:load", function() {
+  $(".button-collapse").sideNav();
+})

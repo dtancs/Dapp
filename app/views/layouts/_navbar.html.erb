@@ -1,6 +1,7 @@
 <nav>
   <div class="container">
     <div class="nav-wrapper">
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <%= link_to 'dapp', root_path , class: "brand-logo", style:"font-family: 'Galada', cursive;"%>
 
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -10,7 +11,18 @@
           <li><%= link_to "Settings", edit_user_path(current_user) %></li>
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
         <% else %>
-        <li><%= link_to "Sign up", signup_path %></li>
+          <li><%= link_to "Sign up", signup_path %></li>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <% if logged_in? %>
+          <li><%= link_to "Feed", root_path %></li>
+          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+          <li><%= link_to "Log out", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign up", signup_path %></li>
           <li><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
