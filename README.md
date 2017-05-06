@@ -1,24 +1,17 @@
-# README
+# dapp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+dapp is a social app that allows users to create microposts to share with everyone.
+Users can also keep track of microposts made by other users by following them.
 
-Things you may want to cover:
+dapp is also available for android devices: https://github.com/dtancs/Dapp-Android
 
-* Ruby version
+## How it works ?
 
-* System dependencies
+This web app is built using Ruby on Rails for its web frontend and backend.
+A JSON based API is built in to expose the backend for the android app.
+Materialize(http://materializecss.com/) is used to build the responsive website with material design.
 
-* Configuration
 
-* Database creation
+## Where can I use the app ?
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Please visit: https://tancs-dapp.herokuapp.com/
