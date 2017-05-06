@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
+  get 'download_apk', to: "static_pages#download_apk"
+
   root 'static_pages#home'
 
   #api

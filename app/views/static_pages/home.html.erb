@@ -30,6 +30,25 @@
       <div class="col s12 m7">
         <h2>Welcome to <span style="font-family: 'Galada', cursive;" class="teal-text text-base">dapp</span></h2>
         <p>Connect with your friends — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.</p>
+
+        <br><br><br>
+
+        <h3><span style="font-family: 'Galada', cursive;" class="teal-text text-base">dapp</span> is also available on Android!</h3>
+
+        <br>
+        <div class="center-align">
+          <%= image_tag(image_path("screenshot.png"), alt: "Android screenshot") %>
+        </div>
+        <br>
+
+        <p>Compatible with android versions 4.0.3(IceCreamSandwich) and up.</p>
+
+        <div class="valign-wrapper">
+          <%= link_to "Download the apk installer* here : ", download_apk_path %>
+          <%= link_to image_tag("ic_launcher.png", alt: "Rails logo"),download_apk_path %>
+        </div>
+
+        <p>*Installation of this apk requires that the "Unknown sources" setting in your android device is enabled. Information on how to do configure this setting can be found <%= link_to "here", "https://android.gadgethacks.com/how-to/android-basics-enable-unknown-sources-sideload-apps-0161947/", target: :_blank %>.</p>
       </div>
 
       <div class="col s12 m5">
