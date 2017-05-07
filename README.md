@@ -5,11 +5,13 @@ Users can also keep track of microposts made by other users by following them.
 
 dapp is also available for android devices: https://github.com/dtancs/Dapp-Android
 
-## How it works ?
+## Stack
 
-This web app is built using Ruby on Rails for its web frontend and backend.
-A JSON based API is built in to expose the backend for the android app.
+Ruby on Rails 5
+PostgreSQL
+jBuilder for JSON APIs
 Materialize(http://materializecss.com/) is used to build the responsive website with material design.
+Kaminari for pagination
 
 
 ## Where can I use the app ?
